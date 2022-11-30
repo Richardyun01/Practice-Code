@@ -1,0 +1,68 @@
+// Morse code converter without strtok
+
+// Wrong example(by me)
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* solution(const char* letter) {
+    char* answer = (char*)malloc(sizeof(char));
+    int i, j;
+    
+    const char* morse[26] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+    
+    const char* code[26] = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+    
+    for (i = 0; i < strlen(letter); i++) {
+        for (j = 0; j < 26; j++) {
+            if (letter[i] == morse[j]) {
+                answer[i] = code[j];
+            }
+        }
+    }
+    
+    answer[j] = '\0';
+    
+    return answer;
+}
+
+// Right Example
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+char morse2char(char *src)
+{
+    const char* morse[26] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+    
+    for (int i = 0; i < 26; i++)
+        if (strcmp(morse[i], src) == 0)
+            return i + 'a';
+    return '#';
+}
+
+char* solution(const char* letter) 
+{
+    char* str = (char*)malloc(1000);
+    char* answer = (char*)malloc(1000);
+    char* pstr = str;
+    int len = strlen(letter);
+    int n = 0;
+
+    strcpy(str, letter);
+    for (int i = 0; i < len; i++) {
+        if (str[i] == ' ') {
+            str[i] = 0;
+            answer[n] = morse2char(pstr);  n++;
+            pstr = str + i + 1;
+        }                
+    }
+    answer[n] = morse2char(pstr);  n++;
+    answer[n] = '\0';
+    
+    free(str);
+    
+    return answer;
+}
