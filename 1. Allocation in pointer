@@ -1,0 +1,15 @@
+// note:
+// 1. answer = outcome of function
+// 2. numbers_len = length of number->inserted in the function
+// 3. malloc: Memory allocation, allocates memory and leaves the memory uninitialized
+// 4. calloc: Contiguous allocation, allocates memory and initializes all bits to zero
+
+// example
+int* solution(int numbers[], size_t numbers_len) {
+  // malloc 
+  char* answer = (char*)malloc(sizeof(int) * numbers_len);
+  // calloc 
+  int* answer = (int*)calloc(numbers_len, sizeof(int));
+}
+
+// now defined of answer's allocated memory
