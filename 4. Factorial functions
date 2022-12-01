@@ -1,0 +1,45 @@
+// Factorial function with for
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int factorial(int n) {
+    int result = 1;
+    
+    for (int i = 1; i <= n; i++) {
+        result *= i;
+    }
+    
+    return result;
+}
+
+// Factorial function with while
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+int factorial(int n) {
+    int result = 1;
+  
+    while (i < n) {
+      i++
+      result *= i;
+   }
+  
+    return result
+}
+
+// Factorial function with do
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+int factorial(int n) {
+    int result = 1;
+  
+    do {
+      i++
+      result *= i;
+   } while (i < n)
+  
+    return result
+}
