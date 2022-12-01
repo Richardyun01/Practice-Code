@@ -1,0 +1,26 @@
+/**
+Upper-lower-number conversion with ASCII
+ASCII code list:
+https://en.wikipedia.org/wiki/ASCII#Printable_characters
+**/
+
+// example: converting lower to number
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* solution(int num) {
+    char* answer = (char*)malloc(sizeof(int));
+    int i = 0;
+    
+    sprintf(answer, "%d", num);
+    
+    for (i = 0; i < strlen(answer); i++) {
+        answer[i] = answer[i] + 49;
+    }
+    
+    answer[i] = '\0';
+    
+    return answer;
+}
