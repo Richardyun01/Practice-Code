@@ -1,0 +1,24 @@
+// If there are multiple k in num then return the first position.
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+int solution(int num, int k) {
+// From backward
+  for (int i = 0; num > 0; i++) {
+      if (num % 10 == k) return i;
+      num /= 10;
+  }
+  return -1;
+  
+// From forward
+  int len, pos = -1;
+  for (len = 0; num > 0; len++) {
+      if (num % 10 == k) pos = len;
+      num /= 10;
+  }
+  if (pos >= 0) pos = len - pos;
+  return pos;
+}
