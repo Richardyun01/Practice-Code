@@ -1,0 +1,18 @@
+
+
+char** solution(const char* my_str, int n) {
+    int nseg = (strlen(my_str) + n-1) / n;
+
+    // malloc for 2D array
+    char** answer = (char**) malloc(nseg * sizeof(char*));
+    char* answer_1d = (char*) calloc(nseg * (n+1), sizeof(char));
+    for (int i = 0; i < nseg; i++)
+        answer[i] = answer_1d + (i * (n + 1));
+
+    for (int i = 0, j = 0; *my_str; ) {
+        if (j == n) j = 0, i++;
+        answer[i][j++] = *my_str++;
+    }
+
+    return answer;
+}
